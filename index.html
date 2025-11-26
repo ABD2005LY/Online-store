@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+</head>
+<body class="bg-gray-100">
+<header 
+  class="text-white text-center flex flex-col justify-center items-center h-screen bg-cover bg-center"
+  style="background-image: url('src/33.png');"
+>
+  <h1 class="text-5xl md:text-6xl font-bold mb-4">
+    اكتشف أفضل المنتجات بأسلوب عصري
+  </h1>
+  <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
+    تسوّق الآن من مجموعتنا الواسعة من الإلكترونيات، الملابس، والإكسسوارات. كل شيء بين يديك بسهولة وسرعة!
+  </p>
+  <a href="#products" class="mt-8 px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded text-white font-semibold transition">
+    تسوّق الآن
+  </a>
+</header>
+
+
+  <section class="max-w-5xl mx-auto mt-6 flex flex-col sm:flex-row gap-4 px-4">
+<input 
+      id="searchInput"
+      type="text" 
+      placeholder="..."
+      class="w-full p-3 rounded-lg border"
+    />
+<select 
+      id="categorySelect"
+      class="p-3 rounded-lg border w-full sm:w-60"
+    >
+      <option value="all">All Categories</option>
+    </select>
+
+  </section>
+   <section class="max-w-6xl mx-auto mt-8 px-4">
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    </div>
+  </section>
+  <div 
+    id="productModal" 
+    tabindex="-1" 
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 bg-black/50 w-full h-full flex justify-center items-center"
+  >
+    <div class="bg-white p-6 rounded-lg w-96">
+      <button id="closeModal" class="float-right text-red-500">X</button>
+      <img id="modalImage" src="" class="w-full h-48 object-contain mt-4" />
+      <h2 id="modalTitle" class="text-xl font-bold mt-4"></h2>
+      <p id="modalPrice" class="text-lg text-green-600 font-semibold"></p>
+      <p id="modalDescription" class="text-gray-600 mt-2"></p>
+    </div>
+  </div>
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="app.js"></script>  
+</body>
+</html>
