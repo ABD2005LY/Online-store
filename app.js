@@ -1,4 +1,4 @@
-// ===== API URLs =====
+//  API 
 const PRODUCTS_API = "https://fakestoreapi.com/products";
 const CATEGORIES_API = "https://fakestoreapi.com/products/categories";
 
@@ -89,7 +89,7 @@ function productCardHTML(product) {
 }
 
 
-// ===== Search & Filter =====
+//  Search && Filter 
 function setupSearchAndFilter() {
   searchInput.addEventListener("input", () => {
     applyFilters();
