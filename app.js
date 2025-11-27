@@ -53,7 +53,6 @@ async function fetchCategories() {
 
 // ===== Render helpers =====
 function populateCategorySelect(categories) {
-  // نملأ عنصر الاختيار بالفئات
   categorySelect.innerHTML = categories
     .map(cat => {
       const label = cat === "all" ? "All Categories" : capitalize(cat);
@@ -63,38 +62,39 @@ function populateCategorySelect(categories) {
 }
 
 function renderProducts(productsArray) {
-  // إذا لا منتجات
   if (!productsArray.length) {
     productsGrid.innerHTML = `<p class="col-span-full text-center text-gray-500">لا توجد منتجات مطابقة.</p>`;
     return;
   }
 
-  // إنشاء HTML للـ cards
   productsGrid.innerHTML = productsArray
     .map(p => productCardHTML(p))
     .join("");
 }
 
 function productCardHTML(product) {
-  // كل بطاقة تحمل data-id لاستخدامه عند النقر
   return `
     <div class="bg-white p-4 rounded-lg shadow hover:shadow-md cursor-pointer" data-id="${product.id}">
       <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.title)}" class="w-full h-48 object-contain mb-3" />
+      
       <h3 class="text-sm font-semibold mb-1 truncate">${escapeHtml(product.title)}</h3>
+      
       <p class="text-green-600 font-bold">$${product.price}</p>
+
+      <p class="text-yellow-500 text-sm">⭐ ${product.rating.rate} (${product.rating.count})</p>
+
       <p class="text-xs text-gray-400 mt-2">${escapeHtml(product.category)}</p>
     </div>
   `;
 }
 
+
 // ===== Search & Filter =====
 function setupSearchAndFilter() {
-  // بحث مباشر عند الكتابة
   searchInput.addEventListener("input", () => {
     applyFilters();
   });
 
-  // عند تغيير الفئة
   categorySelect.addEventListener("change", () => {
     applyFilters();
   });
@@ -168,6 +168,5 @@ function escapeHtml(str) {
     .replaceAll("'", "&#039;");
 }
 
-// ===== Start the app =====
 init();
  
