@@ -25,11 +25,8 @@ async function init() {
     allProducts = await fetchProducts();
     visibleProducts = [...allProducts];
     renderProducts(visibleProducts);
-
     setupSearchAndFilter();
-
     setupProductClick();
-
     setupModalEvents();
   } catch (err) {
     console.error("Init error:", err);
@@ -51,7 +48,7 @@ async function fetchCategories() {
   return ["all", ...cats]; 
 }
 
-// ===== Render helpers =====
+// Render helpers 
 function populateCategorySelect(categories) {
   categorySelect.innerHTML = categories
     .map(cat => {
