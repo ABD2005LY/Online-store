@@ -25,6 +25,7 @@ async function init() {
     allProducts = await fetchProducts();
     visibleProducts = [...allProducts];
     renderProducts(visibleProducts);
+
     setupSearchAndFilter();
     setupProductClick();
     setupModalEvents();
